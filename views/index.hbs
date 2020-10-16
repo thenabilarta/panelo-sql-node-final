@@ -1,0 +1,41 @@
+<div class="container w-100 d-flex pt-5">
+  <a href="/fetch" class="card-link m-auto">Fetch Data</a>
+</div>
+
+<div class="container p-5">
+  <form class="w-50 m-auto mt-5" method="POST" enctype="multipart/form-data" action="/add">
+    <div class="form-group">
+      <label >Nama produk</label>
+      <input type="text" class="form-control" aria-describedby="emailHelp" name="nama">
+    </div>
+    <div class="form-group">
+      <label >Harga Produk</label>
+      <input type="text" class="form-control" aria-describedby="emailHelp" name="harga">
+    </div>
+    <div class="form-group d-flex flex-column">
+      <label >Gambar Produk</label>
+      <input type="file" aria-describedby="emailHelp" name="gambar">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<div class="container">
+  <a href="/import" class="card-link m-auto">Import to Excel</a>
+</div>
+
+<div class="container d-flex flex-wrap">
+  {{#each dataproduk}}
+  <div class="card m-3" style="width: 18rem;">
+    <img src="/img/{{product_image}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{product_name}}</h5>
+      <p class="card-text">{{product_price}}</p>
+    </div>
+    <div class="card-body">
+      <a href="/edit/{{id}}" class="card-link">Edit</a>
+      <a href="/delete/{{id}}" class="card-link">Delete</a>
+    </div>
+  </div>
+  {{/each}}
+</div>
